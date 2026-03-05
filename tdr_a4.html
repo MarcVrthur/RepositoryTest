@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TDR - Dîner de bienvenue CGE (A4)</title>
+  <style>
+    :root {
+      --primary: #0f2d52;
+      --accent: #1f6fb2;
+      --text: #1b1f24;
+      --muted: #5a6472;
+      --line: #d9e0ea;
+      --bg: #f2f5f9;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.45;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 9;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 16px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      background: var(--primary);
+      color: var(--white);
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn.secondary { background: var(--accent); }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      padding: 18mm 16mm;
+      background: var(--white);
+      box-shadow: 0 6px 24px rgba(0,0,0,.08);
+      border: 1px solid #e7edf4;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--primary);
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 16px;
+      margin: 22px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #edf2f8;
+      page-break-after: avoid;
+    }
+
+    h3 {
+      color: #223;
+      font-size: 14px;
+      margin: 16px 0 8px;
+      page-break-after: avoid;
+    }
+
+    p, li { font-size: 12px; }
+    ul, ol { margin: 6px 0 8px 18px; }
+
+    .meta {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: #fbfdff;
+      page-break-inside: avoid;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0;
+      font-size: 11.5px;
+      page-break-inside: auto;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 6px 8px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f4f7fb;
+      color: #223;
+      text-align: left;
+    }
+
+    .note {
+      background: #f6faff;
+      border-left: 4px solid var(--accent);
+      padding: 8px 10px;
+      font-size: 11.5px;
+      color: #1f3550;
+      margin: 8px 0;
+    }
+
+    .checklist li {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .checklist input { transform: scale(.9); margin-right: 6px; }
+
+    .footer {
+      margin-top: 16px;
+      font-size: 10.5px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    @page {
+      size: A4;
+      margin: 14mm;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .toolbar { display: none !important; }
+      .page {
+        margin: 0;
+        width: auto;
+        min-height: auto;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+      }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">Télécharger en PDF (A4)</button>
+    <button class="btn secondary" onclick="downloadDoc()">Télécharger en Word (.doc)</button>
+  </div>
+
+  <main class="page" id="docContent">
+    <h1>TERMES DE RÉFÉRENCE (TDR)</h1>
+    <div class="meta"><strong>Dîner de bienvenue aux nouveaux leaders de la CGE</strong> · Version professionnelle A4</div>
+
+    <h2>1. Fiche signalétique</h2>
+    <table>
+      <tr><th>Élément</th><th>Détail</th></tr>
+      <tr><td>Événement</td><td>Dîner de bienvenue des nouveaux leaders de la CGE</td></tr>
+      <tr><td>Date</td><td>Samedi 28 mars 2026</td></tr>
+      <tr><td>Heure</td><td>19h30 – 22h30</td></tr>
+      <tr><td>Lieu</td><td>Restaurant Toit – Rooftop, Yamoussoukro (adresse à préciser)</td></tr>
+      <tr><td>Participants</td><td>50 personnes prévisionnelles</td></tr>
+      <tr><td>Budget</td><td>300 000 FCFA (paiement unique)</td></tr>
+      <tr><td>Périmètre</td><td>Événement interne CGE uniquement (aucun invité externe)</td></tr>
+    </table>
+
+    <h2>2. Contexte et justification</h2>
+    <p>La Conférence des Grandes Écoles de Côte d’Ivoire (CGE) organise un dîner de bienvenue au profit des nouveaux leaders de la 34e promotion (30 personnes), afin de créer un cadre d’intégration rapide, structuré et convivial.</p>
+    <ul>
+      <li><strong>Aînés/Précurseurs</strong> : orientation et transmission ;</li>
+      <li><strong>33e promotion</strong> : organisation et continuité ;</li>
+      <li><strong>34e promotion</strong> : intégration et engagement.</li>
+    </ul>
+
+    <h2>3. Objectifs</h2>
+    <h3>Objectif général</h3>
+    <p>Accueillir officiellement les 30 nouveaux leaders de la 34e promotion et renforcer la cohésion au sein de la CGE.</p>
+    <h3>Objectifs spécifiques mesurables</h3>
+    <ol>
+      <li>Atteindre 100% de présence cible de la 34e promotion.</li>
+      <li>Structurer l’intégration par des interventions calibrées et un tour de table.</li>
+      <li>Renforcer la cohésion via des tables mixtes et une activité “1 attente / 1 engagement”.</li>
+      <li>Assurer la remise traçable des cartes de membres aux présents.</li>
+      <li>Produire un kit média validé : photo officielle, sélection photos, mini-rapport.</li>
+    </ol>
+
+    <h2>4. Participants</h2>
+    <table>
+      <tr><th>Catégorie</th><th>Effectif</th></tr>
+      <tr><td>34e promotion (nouveaux leaders)</td><td>30</td></tr>
+      <tr><td>33e promotion (incluant le Président)</td><td>10</td></tr>
+      <tr><td>Aînés / Précurseurs</td><td>10</td></tr>
+      <tr><td><strong>Total prévisionnel</strong></td><td><strong>50</strong></td></tr>
+    </table>
+
+    <h2>5. Chronogramme opérationnel</h2>
+    <h3>Avant l’événement</h3>
+    <table>
+      <tr><th>Échéance</th><th>Action</th></tr>
+      <tr><td>J-7</td><td>Save the date + tenue</td></tr>
+      <tr><td>J-3</td><td>Invitation complète + confirmation de présence</td></tr>
+      <tr><td>J-1</td><td>Rappel final + collecte choix menu + plan de table final</td></tr>
+    </table>
+
+    <h3>Jour J</h3>
+    <table>
+      <tr><th>Horaire</th><th>Activité</th><th>Optimisation</th></tr>
+      <tr><td>19h00 – 19h20</td><td>Équipe sur site</td><td>Brief + installation accueil + vérification salle/photo</td></tr>
+      <tr><td>19h30 – 20h00</td><td>Accueil + check-in</td><td>Orientation tables nominatives</td></tr>
+      <tr><td>20h00 – 20h05</td><td>Ouverture MC</td><td>Règles de timing</td></tr>
+      <tr><td>20h05 – 20h10</td><td>Mot du Président</td><td>5 minutes max</td></tr>
+      <tr><td>20h10 – 20h30</td><td>Interventions Aînés</td><td>4 à 5 interventions (3–4 min)</td></tr>
+      <tr><td>20h30 – 20h55</td><td>Tour de table 34e</td><td>45 sec à 1 min/personne</td></tr>
+      <tr><td>20h55 – 21h10</td><td>Activité cohésion express</td><td>Collecte “attente/engagement”</td></tr>
+      <tr><td>21h10 – 21h25</td><td>Remise des cartes</td><td>Traçabilité remis / non remis</td></tr>
+      <tr><td>21h25 – 21h40</td><td>Photo officielle</td><td>Contrôle qualité sur place</td></tr>
+      <tr><td>21h40 – 22h20</td><td>Dîner + networking</td><td>1 toast + 1 relance du MC</td></tr>
+      <tr><td>22h20 – 22h30</td><td>Clôture</td><td>Remerciements + call-to-action</td></tr>
+    </table>
+
+    <h2>6. Logistique & ressources</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Checklist logistique</h3>
+        <ul class="checklist">
+          <li><input type="checkbox" />Réservation confirmée (capacité 50)</li>
+          <li><input type="checkbox" />Heure d’accès équipe orga confirmée</li>
+          <li><input type="checkbox" />Plan de table final + étiquettes</li>
+          <li><input type="checkbox" />Menu validé (2 options minimum)</li>
+          <li><input type="checkbox" />Point accueil prêt (liste + stylos)</li>
+          <li><input type="checkbox" />Zone photo opérationnelle</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Ressources nécessaires</h3>
+        <ul>
+          <li>Cartes de membres prêtes (34e)</li>
+          <li>Guest list validée</li>
+          <li>Messages/visuels WhatsApp</li>
+          <li>Liste de présence</li>
+          <li>Plan de table nominatif</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>7. Budget</h2>
+    <table>
+      <tr><th>Poste</th><th>Montant (FCFA)</th></tr>
+      <tr><td>Espace + repas (plat/dessert)</td><td>250 000</td></tr>
+      <tr><td>Boissons (soft + alcool)</td><td>25 000</td></tr>
+      <tr><td>Impression étiquettes</td><td>10 000</td></tr>
+      <tr><td>Imprévus (5%)</td><td>15 000</td></tr>
+      <tr><td><strong>TOTAL</strong></td><td><strong>300 000</strong></td></tr>
+    </table>
+
+    <h2>8. Livrables et indicateurs</h2>
+    <table>
+      <tr><th>Livrable/KPI</th><th>Cible</th><th>Échéance</th></tr>
+      <tr><td>Présence 34e</td><td>30/30 (ou absences justifiées)</td><td>Jour J</td></tr>
+      <tr><td>Contributions collectées</td><td>≥ 25 (cible 30)</td><td>Jour J</td></tr>
+      <tr><td>Photo officielle validée</td><td>1 photo exploitable</td><td>Jour J</td></tr>
+      <tr><td>Lot média</td><td>20 photos + 1 vidéo courte</td><td>J+3</td></tr>
+      <tr><td>Mini-rapport</td><td>1 page</td><td>J+3</td></tr>
+    </table>
+
+    <div class="note"><strong>Mode téléchargement :</strong> cliquez sur <em>« Télécharger en PDF (A4) »</em>, puis choisissez <em>Enregistrer au format PDF</em> dans la fenêtre d’impression.</div>
+
+    <div class="footer">
+      <span>CGE – TDR Dîner de bienvenue (version exécutable)</span>
+      <span>Date d’édition : 2026</span>
+    </div>
+  </main>
+
+  <script>
+    function downloadDoc() {
+      const header = `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body>`;
+      const footer = `</body></html>`;
+      const content = document.getElementById('docContent').innerHTML;
+      const blob = new Blob([header + content + footer], { type: 'application/msword' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'TDR_Diner_Bienvenue_CGE_A4.doc';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+    }
+  </script>
+</body>
+</html>
